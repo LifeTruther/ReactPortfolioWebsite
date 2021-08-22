@@ -123,7 +123,7 @@ export const Home = ( props:Props) => {
                                     <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther/marvelProjectFullStack" target="_blank">
                                         <GitHubIcon fontSize="large"/>
                                     </IconButton>
-                                    <Button variant="text" color="primary">
+                                    <Button variant="text" color="primary" href="https://a-hero-repository.web.app/">
                                         See the Site
                                     </Button>
                                     <IconButton
