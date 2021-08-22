@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme:Theme) =>
             flexGrow: 1,
             padding: '0',
             margin: '0',
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backGround});`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(${backGround});`,
             width: '100%',
             height: '100%',
             backgroundSize: 'cover',
@@ -50,15 +50,16 @@ const useStyles = makeStyles((theme:Theme) =>
         },
         sideBarPic: {
             width: '100%',
+            opacity: '0.7',
+            borderRadius: '3px'
         },
         paper: {
             margin: '1rem',
             padding: '1.5rem',
-            textAlign: 'left',
-            color: 'black',
         },
         cardS: {
             margin: '1rem',
+            backgroundColor: 'white',
         },
         expand: {
             transform: 'rotate(0deg)',
@@ -70,7 +71,6 @@ const useStyles = makeStyles((theme:Theme) =>
         expandOpen: {
             transform: 'rotate(180deg)',
         },
-
 
     }),
 );
@@ -98,9 +98,9 @@ export const Home = ( props:Props) => {
             <Grid container spacing={0} className={classes.main} direction="row" justifyContent="flex-start" alignItems="flex-start">
                 <Grid container item xs={8} spacing={0}>
                     <Grid item xs={12}>
-                        <Paper className={classes.paper} elevation={20}>
-                            <h1 style={{marginBottom: '1rem'}}>Hello World, I'm Ian!</h1>
-                            <h3>I am a brand-new software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy world.</h3>
+                        <Paper className={classes.paper}>
+                            <h1 style={{marginBottom: '1rem', textAlign: 'center'}}>Hello World, I'm Ian!</h1>
+                            <h2 style={{textAlign: 'justify'}}>I am a brand-new software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy world.</h2>
                         </Paper>
                     </Grid>
                     <Grid container item xs={12}>
@@ -109,7 +109,7 @@ export const Home = ( props:Props) => {
                                 <CardActionArea>
                                     <CardMedia
                                     image={marvelCard}
-                                    title="Contemplative Reptile"
+                                    title="Marvel Project"
                                     style={{height: 140}}
                                     />
                                     <CardContent>
@@ -120,8 +120,8 @@ export const Home = ( props:Props) => {
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <IconButton aria-label="Go to Github">
-                                        <GitHubIcon />
+                                    <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther/marvelProjectFullStack" target="_blank">
+                                        <GitHubIcon fontSize="large"/>
                                     </IconButton>
                                     <Button variant="text" color="primary">
                                         See the Site
@@ -135,7 +135,7 @@ export const Home = ( props:Props) => {
                                         aria-label="show more"
                                         style={{marginLeft: 'auto'}}
                                         >
-                                        <ExpandMoreIcon />
+                                        <ExpandMoreIcon fontSize="large"/>
                                     </IconButton>
                                 </CardActions>
 
@@ -169,8 +169,8 @@ export const Home = ( props:Props) => {
                                 </CardContent>
 
                                     <CardActions>
-                                    <IconButton aria-label="Go to Github">
-                                        <GitHubIcon />
+                                    <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther/CTW6-Weather-Project" target="_blank">
+                                        <GitHubIcon fontSize="large" />
                                     </IconButton>
                                         <IconButton
                                             className={clsx(classes.expand, {
@@ -181,7 +181,7 @@ export const Home = ( props:Props) => {
                                             aria-label="show more"
                                             style={{marginLeft: 'auto'}}
                                             >
-                                            <ExpandMoreIcon />
+                                            <ExpandMoreIcon fontSize="large"/>
                                         </IconButton>
                                     </CardActions>
                                     <Collapse in={expanded2} timeout="auto" unmountOnExit>
@@ -202,6 +202,17 @@ export const Home = ( props:Props) => {
                     <Grid item xs={12}>
                         <Paper className={classes.paper}> 
                             <img src={bitpic} className={classes.sideBarPic}></img>
+                                <div>
+                                <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther" target="_blank">
+                                    <GitHubIcon fontSize="large" style={{margin:'0.55rem'}}/>
+                                </IconButton>
+                                <IconButton aria-label="Go to LinkedIn" href="https://www.linkedin.com/in/ian-walker-849bb1170/" target="_blank">
+                                    <LinkedInIcon fontSize="large" style={{margin:'0.55rem'}}/>
+                                </IconButton>
+                                <IconButton aria-label="Email me" href="mailto:walkerian7@gmail.com">
+                                    <EmailIcon fontSize="large" style={{margin:'0.55rem'}}/>
+                                </IconButton>
+                                </div>
                         </Paper>
                     </Grid> 
                 </Grid>
