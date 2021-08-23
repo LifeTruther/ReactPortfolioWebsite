@@ -178,17 +178,20 @@ export const Home = ( props:Props) => {
                                     <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther/CTW6-Weather-Project" target="_blank">
                                         <GitHubIcon fontSize="large" />
                                     </IconButton>
-                                        <IconButton
-                                            className={clsx(classes.expand, {
-                                                [classes.expandOpen]: expanded2,
-                                            })}
-                                            onClick={handleExpandClick2}
-                                            aria-expanded={expanded2}
-                                            aria-label="show more"
-                                            style={{marginLeft: 'auto'}}
-                                            >
-                                            <ExpandMoreIcon fontSize="large"/>
-                                        </IconButton>
+                                    <Button variant="text" color="primary" href="https://lifetruther.github.io/CTW6-Weather-Project/" target="_blank">
+                                        See the Site
+                                    </Button>
+                                    <IconButton
+                                        className={clsx(classes.expand, {
+                                            [classes.expandOpen]: expanded2,
+                                        })}
+                                        onClick={handleExpandClick2}
+                                        aria-expanded={expanded2}
+                                        aria-label="show more"
+                                        style={{marginLeft: 'auto'}}
+                                        >
+                                        <ExpandMoreIcon fontSize="large"/>
+                                    </IconButton>
                                     </CardActions>
                                     <Collapse in={expanded2} timeout="auto" unmountOnExit>
                                         <CardContent>
