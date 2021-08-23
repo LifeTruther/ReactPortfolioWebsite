@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme:Theme) =>
             flexGrow: 1,
             padding: '0',
             margin: '0',
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(${backGround});`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4)), url(${backGround});`,
             width: '100%',
             height: '100%',
             backgroundSize: 'cover',
@@ -99,14 +99,17 @@ export const Home = ( props:Props) => {
                 <Grid container item xs={8} spacing={0}>
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
-                            <h1 style={{marginBottom: '1rem', textAlign: 'center'}}>Hello World, I'm Ian!</h1>
-                            <h2 style={{textAlign: 'justify'}}>I am a brand-new software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy world.</h2>
+                            <Typography variant="h3" style={{marginBottom: '1rem', textAlign: 'center'}}>Hello World, I'm Ian!</Typography>
+                            <Typography variant="h5" style={{textAlign: 'justify'}}>I am a brand-new software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy world.</Typography>
                         </Paper>
                     </Grid>
                     <Grid container item xs={12}>
                         <Grid item xs={6}>
                             <Card className={classes.cardS}>
-                                <CardActionArea>
+                                <CardActionArea
+                                    onClick={handleExpandClick1}
+                                    aria-expanded={expanded1}
+                                    aria-label="show more">
                                     <CardMedia
                                     image={marvelCard}
                                     title="Marvel Project"
@@ -123,7 +126,7 @@ export const Home = ( props:Props) => {
                                     <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther/marvelProjectFullStack" target="_blank">
                                         <GitHubIcon fontSize="large"/>
                                     </IconButton>
-                                    <Button variant="text" color="primary" href="https://a-hero-repository.web.app/">
+                                    <Button variant="text" color="primary" href="https://a-hero-repository.web.app/" target="_blank">
                                         See the Site
                                     </Button>
                                     <IconButton
@@ -154,7 +157,10 @@ export const Home = ( props:Props) => {
                         
                         <Grid item xs={6}>
                             <Card className={classes.cardS}>
-                                <CardActionArea>
+                                <CardActionArea
+                                onClick={handleExpandClick2}
+                                aria-expanded={expanded1}
+                                aria-label="show more">
                                     <CardMedia
                                     image={weatherCard}
                                     title="Contemplative Reptile"
@@ -202,7 +208,7 @@ export const Home = ( props:Props) => {
                     <Grid item xs={12}>
                         <Paper className={classes.paper}> 
                             <img src={bitpic} className={classes.sideBarPic}></img>
-                                <div>
+                                
                                 <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther" target="_blank">
                                     <GitHubIcon fontSize="large" style={{margin:'0.55rem'}}/>
                                 </IconButton>
@@ -212,7 +218,8 @@ export const Home = ( props:Props) => {
                                 <IconButton aria-label="Email me" href="mailto:walkerian7@gmail.com">
                                     <EmailIcon fontSize="large" style={{margin:'0.55rem'}}/>
                                 </IconButton>
-                                </div>
+                                <Button variant="contained" size="large" color="primary" href="https://drive.google.com/file/d/1TRHH4g-vMPhz1xoxMfywS02VO4SVX_uI/view?usp=sharing" target="_blank" style={{marginRight:'2rem', marginLeft:'2rem', marginTop:'0.5rem'}}>Grab My Resume</Button>
+                                
                         </Paper>
                     </Grid> 
                 </Grid>
