@@ -166,21 +166,18 @@ export const Home = ( props:Props) => {
                                     title="Contemplative Reptile"
                                     style={{height: 140}}
                                     />
-                                </CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="h2">
                                         Daily Weather
                                     </Typography>
                                     
                                 </CardContent>
-
+                                </CardActionArea>
                                     <CardActions>
                                     <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther/CTW6-Weather-Project" target="_blank">
                                         <GitHubIcon fontSize="large" />
                                     </IconButton>
-                                    <Button variant="text" color="primary" href="https://lifetruther.github.io/CTW6-Weather-Project/" target="_blank">
-                                        See the Site
-                                    </Button>
+                                    
                                     <IconButton
                                         className={clsx(classes.expand, {
                                             [classes.expandOpen]: expanded2,
