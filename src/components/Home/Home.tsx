@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import './Home.css';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -27,35 +28,17 @@ import weatherCard from '../assets/images/weatherCard2.jpg';
 
 const useStyles = makeStyles((theme:Theme) =>
     createStyles({
-        root:{
-            flexGrow: 1,
-            padding: '0',
-            margin: '0',
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4)), url(${backGround});`,
-            width: '100%',
-            height: '100%',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            position: 'absolute',
-        },
-        main: {
-            width: '80%',
-            maxWidth: '1000px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            marginTop: '2rem',
-            padding: '0.5rem',
-            borderRadius: '4px',
-        },
+        
         sideBarPic: {
             width: '100%',
             opacity: '0.7',
             borderRadius: '3px'
         },
         paper: {
-            margin: '1rem',
+            marginRight: '1rem',
+            marginBottom: 'auto',
             padding: '1.5rem',
+            opacity: '0.8'
         },
         cardS: {
             margin: '1rem',
@@ -82,6 +65,8 @@ interface Props{
 
 export const Home = ( props:Props) => {
     const classes = useStyles();
+
+
     
     const [expanded1, setExpanded1] = React.useState(false);
     const handleExpandClick1 = () => {
@@ -94,16 +79,45 @@ export const Home = ( props:Props) => {
     };
     
     return (
-        <div className={classes.root}>
-            <Grid container spacing={0} className={classes.main} direction="row" justifyContent="flex-start" alignItems="flex-start">
-                <Grid container item xs={8} spacing={0}>
-                    <Grid item xs={12}>
-                        <Paper className={classes.paper}>
-                            <Typography variant="h3" style={{marginBottom: '1rem', textAlign: 'center'}}>Hello World, I'm Ian!</Typography>
-                            <Typography variant="h5" style={{textAlign: 'justify'}}>I am a brand-new software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy world.</Typography>
-                        </Paper>
+        <div className="root">
+                
+                <div className="main" id="header">
+                    <Typography variant="h1" style={{textAlign: 'center', margin:'auto'}}>Hello World, I'm Ian!</Typography>
+                </div>
+
+                <div className="main" id="about">    
+                    <Typography variant="h2" style={{marginBottom: '1.0rem'}}>About Me</Typography>
+                    <Grid container item xs={12} spacing={0}>
+                        <Grid container item xs={8} spacing={0}>
+                            <Paper className={classes.paper}>
+                                <Typography variant="h6" style={{textAlign: 'justify', marginTop: '1rem'}}>I am a full-stack software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy universe.</Typography>
+                                <Typography variant="h6" style={{textAlign: 'justify', marginTop: '1rem'}}>My journey started in High School, on an old HP laptop running Slackware, and a friend. My road has gone through research in chemistry, medical school and medical scribing, and contract teaching in Chicago. </Typography>
+                            </Paper>
+                        </Grid>
+                        
+                        <Grid container item xs={4} spacing={0}>   
+                            <Grid item xs={12}>
+                                <Paper className={classes.paper}> 
+                                    <img src={bitpic} className={classes.sideBarPic}></img>
+                                        
+                                        <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther" target="_blank">
+                                            <GitHubIcon fontSize="large" style={{margin:'0.55rem'}}/>
+                                        </IconButton>
+                                        <IconButton aria-label="Go to LinkedIn" href="https://www.linkedin.com/in/ian-walker-849bb1170/" target="_blank">
+                                            <LinkedInIcon fontSize="large" style={{margin:'0.55rem'}}/>
+                                        </IconButton>
+                                        <IconButton aria-label="Email me" href="mailto:walkerian7@gmail.com" target="_blank">
+                                            <EmailIcon fontSize="large" style={{margin:'0.55rem'}}/>
+                                        </IconButton>                                
+                                </Paper>
+                            </Grid> 
+                        </Grid>
                     </Grid>
-                    <Grid container item xs={12}>
+                </div>
+
+                <div className="main" id="projects">
+                    <Typography variant="h2" style={{marginBottom: '1.0rem'}}>My Projects</Typography>
+                    <Grid container item xs={12} spacing={0} style={{marginBottom: '10rem'}} direction="row" justifyContent="flex-start" alignItems="flex-start">
                         <Grid item xs={6}>
                             <Card className={classes.cardS}>
                                 <CardActionArea
@@ -177,6 +191,9 @@ export const Home = ( props:Props) => {
                                     <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther/CTW6-Weather-Project" target="_blank">
                                         <GitHubIcon fontSize="large" />
                                     </IconButton>
+                                    <Button variant="text" color="primary" href="https://lifetruther.github.io/CTW6-Weather-Project/" target="_blank">
+                                        See the Site
+                                    </Button>
                                     
                                     <IconButton
                                         className={clsx(classes.expand, {
@@ -203,27 +220,8 @@ export const Home = ( props:Props) => {
                             </Card>
                         </Grid>
                     </Grid>
-                </Grid>
-                <Grid container item xs={4} spacing={0}>   
-                    <Grid item xs={12}>
-                        <Paper className={classes.paper}> 
-                            <img src={bitpic} className={classes.sideBarPic}></img>
-                                
-                                <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther" target="_blank">
-                                    <GitHubIcon fontSize="large" style={{margin:'0.55rem'}}/>
-                                </IconButton>
-                                <IconButton aria-label="Go to LinkedIn" href="https://www.linkedin.com/in/ian-walker-849bb1170/" target="_blank">
-                                    <LinkedInIcon fontSize="large" style={{margin:'0.55rem'}}/>
-                                </IconButton>
-                                <IconButton aria-label="Email me" href="mailto:walkerian7@gmail.com">
-                                    <EmailIcon fontSize="large" style={{margin:'0.55rem'}}/>
-                                </IconButton>
-                                <Button variant="contained" size="large" color="primary" href="https://drive.google.com/file/d/1TRHH4g-vMPhz1xoxMfywS02VO4SVX_uI/view?usp=sharing" target="_blank" style={{marginRight:'2rem', marginLeft:'2rem', marginTop:'0.5rem'}}>Grab My Resume</Button>
-                                
-                        </Paper>
-                    </Grid> 
-                </Grid>
-            </Grid>  
+                </div>                      
+             
         </div>
     )
 }
