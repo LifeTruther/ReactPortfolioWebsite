@@ -26,7 +26,7 @@
     margin-left: auto;
     margin-right: auto;
     height: 97vh;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;

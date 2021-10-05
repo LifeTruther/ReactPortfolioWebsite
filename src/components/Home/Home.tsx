@@ -25,6 +25,9 @@ import marvelCard from '../assets/images/marvelCard2.jpg';
 import weatherCard from '../assets/images/weatherCard2.jpg';
 import capstonepic from '../assets/images/fullpagestretch0.0.7.jpg';
 
+import emailjs, { send } from 'emailjs-com';
+import { SERVICE_ID, TEMPLATE_ID, USER_ID } from './IDs.js'
+
 const useStyles = makeStyles((theme:Theme) =>
     createStyles({
         
@@ -82,6 +85,29 @@ export const Home = ( props:Props) => {
         setExpanded3(!expanded3);
     };
 
+    const [toSend, setToSend] = React.useState({
+        from_name: '',
+        message: '',
+        reply_to: '',
+    });
+    
+    
+    const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        send(SERVICE_ID, TEMPLATE_ID, toSend, USER_ID)
+        .then((response) => {
+            console.log(response.text);
+        }, (error) => {
+            console.log(error.text);
+        });    
+    };
+    
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+        console.log(toSend)
+    };
+
     
     return (
         <div className="root">
@@ -92,13 +118,13 @@ export const Home = ( props:Props) => {
                     <Typography variant="button" style={{marginRight: '5rem', marginTop: '1.3rem', fontSize: '1.1rem'}}><a href="#contact">Contact</a></Typography>
                 </div>
 
-                <div className="main" id="header">
+                <div className="main" id="header" style={{height:'85vh'}}>
                     <Typography variant="h1" style={{textAlign: 'center', margin:'auto'}}>Hello World, I'm Ian!</Typography>
                 </div>
 
                 <div className="main" id="about">    
                     <Typography variant="h2" style={{marginBottom: '1.0rem'}}>About Me</Typography>
-                    <Grid container xs={12} spacing={0}>
+                    <Grid container spacing={0}>
                         <Grid item xs={8}>
                             <Paper className={classes.paper}>
                                 <Typography variant="h6" style={{textAlign: 'justify', marginTop: '1rem'}}>I am a full-stack software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy universe.</Typography>
@@ -127,7 +153,7 @@ export const Home = ( props:Props) => {
 
                 <div className="main" id="projects">
                     <Typography variant="h2" style={{marginBottom: '1.0rem'}}>My Projects</Typography>
-                    <Grid container xs={12} spacing={0} direction="row" justifyContent="flex-start" alignItems="flex-start">
+                    <Grid container spacing={0} direction="row" justifyContent="flex-start" alignItems="flex-start">
                         <Grid item xs={6}>
                             <Card className={classes.cardS}>
                                 <CardActionArea
@@ -229,7 +255,7 @@ export const Home = ( props:Props) => {
                                     </Collapse>
                             </Card>
                         </Grid>
-                        <div style={{scrollSnapAlign:"start"}}></div>
+                        
                         <Grid item xs={12}>
                             <Card className={classes.cardS}>
                                     <CardActionArea
@@ -276,24 +302,19 @@ export const Home = ( props:Props) => {
                             </Card>
                         </Grid>
                     </Grid>
-                </div>                      
-                <div className="main" id="contact">
+                </div>  
+                <div style={{scrollSnapAlign:"center", height:'0'}}></div>                    
+                <div className="main" id="contact" style={{height:'115vh', scrollSnapAlign: 'end'}}>
                     <Typography variant="h2" style={{marginBottom: '1.0rem'}}>Contact Me</Typography>
                     <Paper className="contactcapsule">
-                        <form className="contactform" >
+                        <form className="contactform" onSubmit={onSubmit}>
                             
-                            <TextField label="Full Name" />
+                            <TextField label="Full Name" name="from_name" value={toSend.from_name} onChange={handleChange}/>
                             
-                            <TextField label="Email"/>
+                            <TextField label="Email" name="reply_to" value={toSend.reply_to} onChange={handleChange}/>
                             
-                            <TextField
-                                // id="standard-multiline-static"
-                                label="Message"
-                                multiline
-                                rows={4}
-                                />
+                            <TextField label="Message" multiline rows={4} name="message" value={toSend.message} onChange={handleChange}/>
                             <Button type="submit">Submit</Button>
-                            
                         </form>
                     </Paper>
                 </div>
