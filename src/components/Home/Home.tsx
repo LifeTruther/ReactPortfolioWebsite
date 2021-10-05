@@ -98,9 +98,11 @@ export const Home = ( props:Props) => {
         send(SERVICE_ID, TEMPLATE_ID, toSend, USER_ID)
         .then((response) => {
             console.log(response.text);
+            document.getElementById('contactform')!.innerHTML = '<h1 style=(textAlign:"center")>Thank You!</h1>';
         }, (error) => {
             console.log(error.text);
-        });    
+        }); 
+        
     };
     
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -307,7 +309,7 @@ export const Home = ( props:Props) => {
                 <div className="main" id="contact" style={{height:'115vh', scrollSnapAlign: 'end'}}>
                     <Typography variant="h2" style={{marginBottom: '1.0rem'}}>Contact Me</Typography>
                     <Paper className="contactcapsule">
-                        <form className="contactform" onSubmit={onSubmit}>
+                        <form className="contactform" onSubmit={onSubmit} id="contactform">
                             
                             <TextField label="Full Name" name="from_name" value={toSend.from_name} onChange={handleChange}/>
                             
