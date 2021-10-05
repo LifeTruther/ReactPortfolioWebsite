@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField'
 import './Home.css';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -19,12 +20,10 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import EmailIcon from '@material-ui/icons/Email';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
-
-
-import backGround from '../assets/images/chibg.jpg';
 import bitpic from '../assets/images/hiSmileBit.jpg';
 import marvelCard from '../assets/images/marvelCard2.jpg';
 import weatherCard from '../assets/images/weatherCard2.jpg';
+import capstonepic from '../assets/images/fullpagestretch0.0.7.jpg';
 
 const useStyles = makeStyles((theme:Theme) =>
     createStyles({
@@ -38,11 +37,12 @@ const useStyles = makeStyles((theme:Theme) =>
             marginRight: '1rem',
             marginBottom: 'auto',
             padding: '1.5rem',
-            opacity: '0.8'
+            opacity: '0.75'
         },
         cardS: {
             margin: '1rem',
             backgroundColor: 'white',
+            opacity: '0.75'
         },
         expand: {
             transform: 'rotate(0deg)',
@@ -66,7 +66,6 @@ interface Props{
 export const Home = ( props:Props) => {
     const classes = useStyles();
 
-
     
     const [expanded1, setExpanded1] = React.useState(false);
     const handleExpandClick1 = () => {
@@ -77,47 +76,58 @@ export const Home = ( props:Props) => {
     const handleExpandClick2 = () => {
         setExpanded2(!expanded2);
     };
+
+    const [expanded3, setExpanded3] = React.useState(false);
+    const handleExpandClick3 = () => {
+        setExpanded3(!expanded3);
+    };
+
     
     return (
         <div className="root">
                 
+                <div className = "nav">
+                    <Typography variant="button" style={{marginRight: '3rem', marginTop: '1.3rem', fontSize: '1.1rem'}}><a href="#about">About Me</a></Typography>
+                    <Typography variant="button" style={{marginRight: '3rem', marginTop: '1.3rem', fontSize: '1.1rem'}}><a href="#projects">Projects</a></Typography>
+                    <Typography variant="button" style={{marginRight: '5rem', marginTop: '1.3rem', fontSize: '1.1rem'}}><a href="#contact">Contact</a></Typography>
+                </div>
+
                 <div className="main" id="header">
                     <Typography variant="h1" style={{textAlign: 'center', margin:'auto'}}>Hello World, I'm Ian!</Typography>
                 </div>
 
                 <div className="main" id="about">    
                     <Typography variant="h2" style={{marginBottom: '1.0rem'}}>About Me</Typography>
-                    <Grid container item xs={12} spacing={0}>
-                        <Grid container item xs={8} spacing={0}>
+                    <Grid container xs={12} spacing={0}>
+                        <Grid item xs={8}>
                             <Paper className={classes.paper}>
                                 <Typography variant="h6" style={{textAlign: 'justify', marginTop: '1rem'}}>I am a full-stack software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy universe.</Typography>
                                 <Typography variant="h6" style={{textAlign: 'justify', marginTop: '1rem'}}>My journey started in High School, on an old HP laptop running Slackware, and a friend. My road has gone through research in chemistry, medical school and medical scribing, and contract teaching in Chicago. </Typography>
                             </Paper>
                         </Grid>
                         
-                        <Grid container item xs={4} spacing={0}>   
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper}> 
-                                    <img src={bitpic} className={classes.sideBarPic}></img>
-                                        
+                        <Grid item xs={4}>   
+                            <Paper className={classes.paper}> 
+                                <img src={bitpic} className={classes.sideBarPic}></img>
+                                    <div className="icons">
                                         <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther" target="_blank">
-                                            <GitHubIcon fontSize="large" style={{margin:'0.55rem'}}/>
+                                            <GitHubIcon fontSize="medium" style={{margin:'0.4rem'}}/>
                                         </IconButton>
                                         <IconButton aria-label="Go to LinkedIn" href="https://www.linkedin.com/in/ian-walker-849bb1170/" target="_blank">
-                                            <LinkedInIcon fontSize="large" style={{margin:'0.55rem'}}/>
+                                            <LinkedInIcon fontSize="medium" style={{margin:'0.4rem'}}/>
                                         </IconButton>
                                         <IconButton aria-label="Email me" href="mailto:walkerian7@gmail.com" target="_blank">
-                                            <EmailIcon fontSize="large" style={{margin:'0.55rem'}}/>
-                                        </IconButton>                                
-                                </Paper>
-                            </Grid> 
+                                            <EmailIcon fontSize="medium" style={{margin:'0.4rem'}}/>
+                                        </IconButton>
+                                    </div>                               
+                            </Paper>                   
                         </Grid>
                     </Grid>
                 </div>
 
                 <div className="main" id="projects">
                     <Typography variant="h2" style={{marginBottom: '1.0rem'}}>My Projects</Typography>
-                    <Grid container item xs={12} spacing={0} style={{marginBottom: '10rem'}} direction="row" justifyContent="flex-start" alignItems="flex-start">
+                    <Grid container xs={12} spacing={0} direction="row" justifyContent="flex-start" alignItems="flex-start">
                         <Grid item xs={6}>
                             <Card className={classes.cardS}>
                                 <CardActionArea
@@ -219,9 +229,74 @@ export const Home = ( props:Props) => {
                                     </Collapse>
                             </Card>
                         </Grid>
+                        <div style={{scrollSnapAlign:"start"}}></div>
+                        <Grid item xs={12}>
+                            <Card className={classes.cardS}>
+                                    <CardActionArea
+                                        onClick={handleExpandClick3}
+                                        aria-expanded={expanded3}
+                                        aria-label="show more">
+                                        <CardMedia
+                                        image={capstonepic}
+                                        title="Eat Safe Chicago"
+                                        style={{height: 240}}
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                Eat Safe Chicago
+                                            </Typography>
+                                            
+                                        </CardContent>
+                                    </CardActionArea>
+                                    <CardActions>
+                                        <IconButton aria-label="Go to Github" href="https://github.com/LifeTruther/EatSafeChicago" target="_blank">
+                                            <GitHubIcon fontSize="large"/>
+                                        </IconButton>
+                                    
+                                        <IconButton
+                                            className={clsx(classes.expand, {
+                                                [classes.expandOpen]: expanded3,
+                                            })}
+                                            onClick={handleExpandClick3}
+                                            aria-expanded={expanded3}
+                                            aria-label="show more"
+                                            style={{marginLeft: 'auto'}}
+                                            >
+                                            <ExpandMoreIcon fontSize="large"/>
+                                        </IconButton>
+                                    </CardActions>
+
+                                    <Collapse in={expanded3} timeout="auto" unmountOnExit>
+                                        <CardContent>
+                                        <Typography paragraph>
+                                            My code camp capstone project was a Chrome extension. It provides address-specific food safety data to users of Google Maps upon viewing a given restaurant. I have actually been using this app to check restaurants that me and my wife go out to, and I am happy to be able to share this idea with everybody!
+                                        </Typography>
+                                    </CardContent>
+                                </Collapse>
+                            </Card>
+                        </Grid>
                     </Grid>
                 </div>                      
-             
+                <div className="main" id="contact">
+                    <Typography variant="h2" style={{marginBottom: '1.0rem'}}>Contact Me</Typography>
+                    <Paper className="contactcapsule">
+                        <form className="contactform" >
+                            
+                            <TextField label="Full Name" />
+                            
+                            <TextField label="Email"/>
+                            
+                            <TextField
+                                // id="standard-multiline-static"
+                                label="Message"
+                                multiline
+                                rows={4}
+                                />
+                            <Button type="submit">Submit</Button>
+                            
+                        </form>
+                    </Paper>
+                </div>
         </div>
     )
 }

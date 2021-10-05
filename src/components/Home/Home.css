@@ -1,3 +1,5 @@
+
+
 .root{
     flex-grow: 1;
     padding: 0;
@@ -12,7 +14,8 @@
     scroll-snap-type: y mandatory;
     scroll-snap-type: mandatory;
     overflow-y: scroll;
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 .main {
@@ -22,14 +25,52 @@
     min-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0.5rem;
-    height: 100vh;
+    height: 97vh;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 5;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #about, #projects{
-    padding-top: 6rem;
+    padding-top: 7rem;
+}
+
+.nav {
+    min-width: 600px;
+    position: fixed;
+    height: 3rem;
+    width: 100vw;
+    background: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    z-index: 8;
+}
+
+.contactcapsule {
+    padding:2rem;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    opacity: 0.75;
+}
+
+.contactform {
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
