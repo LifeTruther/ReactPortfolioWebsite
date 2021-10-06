@@ -4,7 +4,7 @@
     flex-grow: 1;
     padding: 0;
     margin: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.6)), url(../assets/images/chibg.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url(../assets/images/chibg.jpg);
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -22,11 +22,13 @@
     position: relative;
     width: 80%;
     max-width: 1000px;
-    min-width: 600px;
+    min-width: 300px;
     margin-left: auto;
     margin-right: auto;
-    height: 97vh;
-    scroll-snap-align: center;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    min-height: 97vh;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +46,7 @@
 }
 
 .nav {
-    min-width: 600px;
+    min-width: 300px;
     position: fixed;
     height: 3rem;
     width: 100vw;
@@ -57,7 +59,6 @@
 
 .contactcapsule {
     padding:2rem;
-    width:50%;
     margin-left:auto;
     margin-right:auto;
     opacity: 0.75;

@@ -38,14 +38,15 @@ const useStyles = makeStyles((theme:Theme) =>
             borderRadius: '3px'
         },
         paper: {
-            marginRight: '1rem',
+            margin: '0.5rem',
             marginBottom: 'auto',
             padding: '1.5rem',
             opacity: '0.75'
         },
         cardS: {
             backgroundColor: 'white',
-            opacity: '0.75'
+            opacity: '0.75',
+            margin: '0.5rem'
         },
         expand: {
             transform: 'rotate(0deg)',
@@ -116,26 +117,26 @@ export const Home = ( props:Props) => {
                 
                 <div className = "nav">
                 
-                    <Typography variant="button" style={{marginRight: '3rem', marginTop: '1.3rem', fontSize: '1.1rem'}}><a href="#about">About Me</a></Typography>
-                    <Typography variant="button" style={{marginRight: '3rem', marginTop: '1.3rem', fontSize: '1.1rem'}}><a href="#projects">Projects</a></Typography>
-                    <Typography variant="button" style={{marginRight: '5rem', marginTop: '1.3rem', fontSize: '1.1rem'}}><a href="#contact">Contact</a></Typography>
+                    <Typography variant="button" style={{marginRight: '3%', marginTop: '1rem', fontSize: '1.1rem'}}><a href="#about">About Me</a></Typography>
+                    <Typography variant="button" style={{marginRight: '3%', marginTop: '1rem', fontSize: '1.1rem'}}><a href="#projects">Projects</a></Typography>
+                    <Typography variant="button" style={{marginRight: '5%', marginTop: '1rem', fontSize: '1.1rem'}}><a href="#contact">Contact</a></Typography>
                 </div>
 
-                <div className="main" id="header" style={{height:'95vh'}}>
+                <div className="main" id="header" style={{minHeight:'95vh'}}>
                     <Typography variant="h1" style={{textAlign: 'center', margin:'auto'}}>Hello World, I'm Ian!</Typography>
                 </div>
 
-                <div className="main" id="about" style={{height: '95vh'}}>    
-                    <Typography variant="h2" style={{marginBottom: '1.0rem'}}>About Me</Typography>
+                <div className="main" id="about" style={{minHeight: '95vh'}}>    
+                    <Typography variant="h2" style={{marginBottom: '1.0rem', paddingLeft:'0.5rem'}}>About Me</Typography>
                     <Grid container spacing={0} style={{paddingBottom:'15rem'}}>
-                        <Grid item xs={8}>
+                        <Grid item md={8} xs={12}>
                             <Paper className={classes.paper}>
                                 <Typography variant="h6" style={{textAlign: 'justify', marginTop: '1rem'}}>I am a full-stack software developer with a flair for the spontaneous, a knack for putting my whole brain into difficult problems, and a love and thirst for the understanding we can gain of this crazy universe.</Typography>
                                 <Typography variant="h6" style={{textAlign: 'justify', marginTop: '1rem'}}>My journey started in High School, on an old HP laptop running Slackware, and a friend. My road has gone through research in chemistry, medical school and medical scribing, and contract teaching in Chicago. </Typography>
                             </Paper>
                         </Grid>
                         
-                        <Grid item xs={4}>   
+                        <Grid item md={4} xs={12}>   
                             <Paper className={classes.paper} style={{padding:'0rem'}}> 
                                 <img src={bitpic} className={classes.sideBarPic}></img>
                                 <div className="icons">
@@ -154,11 +155,11 @@ export const Home = ( props:Props) => {
                     </Grid>
                 </div>
 
-                <div className="main" id="projects" style={{height:'100vh'}}>
-                    <Typography variant="h2" style={{marginBottom: '1.0rem'}}>My Projects</Typography>
+                <div className="main" id="projects" style={{minHeight:'100vh'}}>
+                    <Typography variant="h2" style={{marginBottom: '1.0rem', paddingLeft: '0.5rem'}}>My Projects</Typography>
                     <Grid container spacing={0} direction="row" justifyContent="flex-start" alignItems="flex-start">
-                        <Grid item xs={6}>
-                            <Card className={classes.cardS} style={{marginRight: '1rem', marginBottom: '1rem'}}>
+                        <Grid item md={6} xs={12}>
+                            <Card className={classes.cardS}>
                                 <CardActionArea
                                     onClick={handleExpandClick1}
                                     aria-expanded={expanded1}
@@ -208,7 +209,7 @@ export const Home = ( props:Props) => {
                             </Card>
                         </Grid>
                         
-                        <Grid item xs={6}>
+                        <Grid item md={6} xs={12}>
                             <Card className={classes.cardS}>
                                 <CardActionArea
                                 onClick={handleExpandClick2}
@@ -308,7 +309,7 @@ export const Home = ( props:Props) => {
                 </div>  
                 <div style={{scrollSnapAlign:"center", height:'0'}}></div>                    
                 <div className="main" id="contact" style={{height:'115vh', scrollSnapAlign: 'end'}}>
-                    <Typography variant="h2" style={{marginBottom: '2rem'}}>Contact Me</Typography>
+                    <Typography variant="h2" style={{marginBottom: '2rem', paddingTop: '2rem'}}>Contact Me</Typography>
                     <Paper className="contactcapsule">
                         <form className="contactform" onSubmit={onSubmit} id="contactform">
                             
